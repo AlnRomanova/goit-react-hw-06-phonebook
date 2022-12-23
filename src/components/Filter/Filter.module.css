@@ -9,8 +9,8 @@
 
 
 .filterInput {
-  width: 40%;
-  height: 20px;
+  width: 45%;
+  height: 27px;
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: 10px;
@@ -25,7 +25,7 @@
   border-radius: 4px;
   cursor: pointer;
 
- 
+
 }
 
 .filterInput:hover, .filterInput:focus {
