@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -31,21 +31,14 @@ const ContactForm = () => {
     }
   };
 
-
   const handlerSubmit = e => {
     e.preventDefault();
 
-    if (contacts.length) {
-      contacts.some(e => e.name === name)
-        ? toast.info(`${name} is already in contacts 👇`)
-        : dispatch(addContact(name, number));
-
-        } else {
-          dispatch(addContact(name, number));
-
-        }
-
-
+    if (contacts.some(e => e.name === name)) {
+      toast.info(`${name} is already in contacts 👇`);
+      return;
+    }
+    dispatch(addContact(name, number));
     setName('');
     setNumber('');
   };
@@ -53,7 +46,6 @@ const ContactForm = () => {
   return (
     <form className={css.form} onSubmit={handlerSubmit}>
       <label htmlFor="" className={css.formLabel}>
-        {' '}
         Name
         <input
           className={css.formInput}
@@ -67,7 +59,6 @@ const ContactForm = () => {
         />
       </label>
       <label htmlFor="" className={css.formLabel}>
-        {' '}
         Number
         <input
           className={css.formInput}
@@ -86,5 +77,3 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
-
-
