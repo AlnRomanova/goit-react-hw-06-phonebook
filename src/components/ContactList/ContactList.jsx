@@ -15,17 +15,24 @@ const ContactList = () => {
   );
 
 
+  console.log(contactsFiltered)
+
 
   return (
+    <>
+    {contactsFiltered && (
     <ul className={css.contacts}>
     {contactsFiltered.map(({id, name, number}) => (
-     <li className={css.contactsItem} key={id} >
+     <li className={css.contactsItem}  id={id} key={id} >
        <p className={css.contactsName}>{name}:</p>
        <p className={css.contactsNumber}>{number}</p>
        <button className={css.contactsBtn} type="button" onClick={()=> dispatch(deleteContact(id))}>Delete</button>
      </li>
    ))}
+
     </ul>
+    )}
+    </>
   )
 }
 

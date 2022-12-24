@@ -31,14 +31,21 @@ const ContactForm = () => {
     }
   };
 
+
   const handlerSubmit = e => {
     e.preventDefault();
 
-    if (contacts.some(e => e.name === name)) {
-          toast.info(`${name} is already in contacts 👇`);
+    if (contacts.length) {
+      contacts.some(e => e.name === name)
+        ? toast.info(`${name} is already in contacts 👇`)
+        : dispatch(addContact(name, number));
+
         } else {
-           dispatch(addContact(name, number));
+          dispatch(addContact(name, number));
+
         }
+
+
     setName('');
     setNumber('');
   };
