@@ -3,11 +3,14 @@ import { useDispatch} from 'react-redux';
 import { filterContacts } from 'redux/filterSlice';
 
 
+
+
 const Filter = () => {
   const dispatch = useDispatch();
 
+
   const changeFilter = e => {
-    dispatch(filterContacts(e.currentTarget.value.toLowerCase()));
+    dispatch(filterContacts(e.currentTarget.value));
   };
 
   return (
@@ -16,6 +19,7 @@ const Filter = () => {
       <input
         className={css.filterInput}
         type="text"
+        name="filter"
         onChange={changeFilter}
         placeholder="give me keyword..."
       />
